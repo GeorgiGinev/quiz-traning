@@ -1,11 +1,18 @@
 <?php
+$quizTrainingPluginName = "Quiz Training Plugin";
+$quizTrainingPluginType = "Quiz Plugin";
+$quizTrainingPluginSlug = "quiz-training-plugin";
 
-add_action('admin_menu', 'test_plugin_setup_menu');
+add_action('admin_menu', function () use ($quizTrainingPluginName, $quizTrainingPluginType, $quizTrainingPluginSlug) {
+    quizTrainingPluginSetupMenu($quizTrainingPluginName, $quizTrainingPluginType, $quizTrainingPluginSlug);
+});
 
-function test_plugin_setup_menu(){
-    add_menu_page( 'Test Plugin Page', 'Test Plugin', 'manage_options', 'test-plugin', 'test_init' );
+function quizTrainingPluginSetupMenu($name, $type, $slug){
+    add_menu_page( $name, $type, 'manage_options', $slug, 'quizTrainingPluginInit' );
 }
 
-function test_init(){
-    echo "<h1>Hello World!</h1>";
+function quizTrainingPluginInit(){
+    if(is_admin()) {
+        require_once("admin/index.php");
+    }
 }
