@@ -1,5 +1,5 @@
 /* Base */
-@import "base/variable.css";
+@import "abstract/variable.css";
 
 /* Components */
 @import "components/buttons.css";
