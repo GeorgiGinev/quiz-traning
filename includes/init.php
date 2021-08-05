@@ -1,5 +1,7 @@
 <?php
+global $quizTrainingPluginName;
 $quizTrainingPluginName = "Quiz Training Plugin";
+
 $quizTrainingPluginType = "Quiz Plugin";
 $quizTrainingPluginSlug = "quiz-training-plugin";
 
@@ -13,6 +15,6 @@ function quizTrainingPluginSetupMenu($name, $type, $slug){
 
 function quizTrainingPluginInit(){
     if(is_admin()) {
-        require_once("admin/index.php");
+        require_once(plugin_dir_path( __FILE__ )."../admin/index.php");
     }
 }
